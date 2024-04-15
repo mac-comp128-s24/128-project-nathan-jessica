@@ -1,9 +1,12 @@
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
 
+import edu.macalester.graphics.GraphicsObject;
 
 /**
  * 
  */
-public class Character {
+public class Character extends GraphicsObject{
     private static String pngPath;
     private static String name;
     private static CharacterManager manager;
@@ -36,5 +39,29 @@ public class Character {
 
     private void checkQueue(){
 
+    }
+
+    @Override
+    protected void drawInLocalCoordinates(Graphics2D gc) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'drawInLocalCoordinates'");
+    }
+
+    @Override
+    public boolean testHitInLocalCoordinates(double x, double y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'testHitInLocalCoordinates'");
+    }
+
+    @Override
+    public Rectangle2D getBounds() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getBounds'");
+    }
+
+    @Override
+    protected Object getEqualityAttributes() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getEqualityAttributes'");
     }
 }
