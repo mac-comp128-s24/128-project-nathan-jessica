@@ -19,10 +19,14 @@ public class CharacterManager {
     }
 
     public void placeCharacter(){
+        
+    }
 
+    public double[] getCoordinate(Character character){
+        return characterCoordinate.get(character);
     }
 
     public int randomInt(){
-        return random.nextInt()
+        return random.nextInt();
     }
 }
