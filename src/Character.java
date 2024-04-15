@@ -35,6 +35,6 @@ public class Character {
     }
 
     private void checkQueue(){
-        
+
     }
 }

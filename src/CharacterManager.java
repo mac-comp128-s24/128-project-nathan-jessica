@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * 
@@ -7,12 +8,21 @@ import java.util.HashMap;
 public class CharacterManager {
     private static ArrayDeque<Character> characterSequence;
     private static HashMap<Character, double[]> characterCoordinate;
+
+
+
+    private static Random random = new Random();
     
     public CharacterManager(){
         characterSequence = new ArrayDeque<Character>();
         characterCoordinate = new HashMap<Character, double[]>();
+    }
+
+    public void placeCharacter(){
 
     }
 
-    
+    public int randomInt(){
+        return random.nextInt()
+    }
 }
