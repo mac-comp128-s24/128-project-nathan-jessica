@@ -1,4 +1,6 @@
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.Point;
+
 import java.util.ArrayDeque;
 
 /**
@@ -14,8 +16,7 @@ public class InputManager {
         UserInput = new ArrayDeque<Character>();
     }
 
-    public getCharacter(Point){
-        UserInput.offer(character);
+    public Character getCharacter(Point clickedPoint){
 
     }
 
