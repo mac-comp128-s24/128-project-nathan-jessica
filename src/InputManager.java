@@ -17,7 +17,7 @@ public class InputManager {
     }
 
     public Character getCharacter(Point clickedPoint){
-
+        
     }
 
 }
