@@ -15,6 +15,8 @@ public class UI {
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
     }
 
-
+    private addBackground(){
+        
+    }
 
 }
