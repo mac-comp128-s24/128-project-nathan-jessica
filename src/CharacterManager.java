@@ -1,12 +1,14 @@
-import java.util.ArrayDeque;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
+import java.util.Queue;
 
 /**
  * 
  */
 public class CharacterManager {
-    private static ArrayDeque<Character> characterSequence;
+    private static Queue<Character> characterSequence;
     private static HashMap<Character, double[]> characterCoordinate;
 
 
@@ -14,7 +16,7 @@ public class CharacterManager {
     private static Random random = new Random();
     
     public CharacterManager(){
-        characterSequence = new ArrayDeque<Character>();
+        characterSequence = new LinkedList<>();
         characterCoordinate = new HashMap<Character, double[]>();
     }
 

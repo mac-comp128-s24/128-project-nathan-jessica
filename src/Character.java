@@ -1,22 +1,33 @@
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
-import edu.macalester.graphics.GraphicsObject;
+import edu.macalester.graphics.Image;
 
 /**
  * 
  */
-public class Character extends GraphicsObject{
+public class Character extends Image{
     private static String pngPath;
     private static String name;
     private static CharacterManager manager;
+    private static Double size;
     
+    /**
+     * Construct a character object that is a graphics image 
+     * @param path of the source image in PNG
+     * @param name of the character
+     * @param manager used to manage the character sequence queue
+     */
     public Character(String path, String name, CharacterManager manager){
+        super(path);
         this.pngPath = path;
         this.name = name;
         this.manager = manager;
     }
 
+    /**
+     * @return
+     */
     private String getName(){
         return name;
     }
@@ -39,29 +50,5 @@ public class Character extends GraphicsObject{
 
     private void checkQueue(){
 
-    }
-
-    @Override
-    protected void drawInLocalCoordinates(Graphics2D gc) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'drawInLocalCoordinates'");
-    }
-
-    @Override
-    public boolean testHitInLocalCoordinates(double x, double y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'testHitInLocalCoordinates'");
-    }
-
-    @Override
-    public Rectangle2D getBounds() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBounds'");
-    }
-
-    @Override
-    protected Object getEqualityAttributes() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEqualityAttributes'");
     }
 }
