@@ -47,4 +47,9 @@ public class CharacterManager {
     private int randomInt(int limit){
         return random.nextInt(limit);
     }
+
+    /
+    private double[] getFirstCharacterCoordinate(){
+        return getCoordinate(characterSequence.peek());
+    }
 }
