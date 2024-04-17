@@ -1,3 +1,4 @@
+import edu.macalester.graphics.CanvasWindow;
 
 /**
  * 
@@ -12,7 +13,12 @@ public class MemoryGame {
     private static int lifeLeft;
 
 
-    public MemoryGame(){
-        
+    public MemoryGame(CanvasWindow window){
+        charManager = new CharacterManager(window);
+        inputManager = new InputManager(window, charManager);
+        levels = new Levels();
+        currentLevel = 1;
+
+        charManager.placeCharacter();
     }
 }
