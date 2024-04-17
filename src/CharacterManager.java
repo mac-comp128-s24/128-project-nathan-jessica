@@ -16,11 +16,11 @@ public class CharacterManager {
     private static CharacterPNGPath characterPathMap;
     private static HashMap<Character, double[]> characterCoordinate;
 
-    private static CanvasWindow window;
-    private static Levels levels;
+    private CanvasWindow window;
+    private Levels levels;
     private static CharacterPNGPath pathDirectory;
 
-    private static int currentLevel;
+    private int currentLevel;
 
     private static Random random = new Random();
 
@@ -41,9 +41,10 @@ public class CharacterManager {
     }
 
     public void placeCharacter(){
-        String[] characterAvailable = levels.get(currentLevel);
+        String[] characterAvailable = Levels.get(currentLevel);
         int characterIndex = randomInt(characterAvailable.length);
-        Character character = new Character(pathDirectory.get(characterAvailable[characterIndex]), characterAvailable[characterIndex], this);
+        String characterName = characterAvailable[characterIndex];
+        Character character = new Character(pathDirectory.get(characterName), characterName);
         
         character.setMaxHeight(randomSize());
         character.setPosition(randomCoordinate());

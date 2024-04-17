@@ -9,8 +9,6 @@ import edu.macalester.graphics.Image;
 public class Character extends Image{
     private static String pngPath;
     private static String name;
-    private static CharacterManager manager;
-    private static Double size;
     
     /**
      * Construct a character object that is a graphics image 
@@ -18,11 +16,10 @@ public class Character extends Image{
      * @param name of the character
      * @param manager used to manage the character sequence queue
      */
-    public Character(String path, String name, CharacterManager manager){
+    public Character(String path, String name){
         super(path);
         this.pngPath = path;
         this.name = name;
-        this.manager = manager;
     }
 
     /**
