@@ -12,7 +12,7 @@ import java.util.Queue;
  */
 public class CharacterManager {
     private static Queue<Character> characterSequence;
-    private static HashMap<Character, String> characterPath
+    private static CharacterPNGPath characterPathMap;
     private static HashMap<Character, double[]> characterCoordinate;
 
     private static CanvasWindow window;
@@ -24,6 +24,7 @@ public class CharacterManager {
     
     public CharacterManager(CanvasWindow window, Levels levels){
         characterSequence = new LinkedList<>();
+        characterPathMap = new CharacterPNGPath();
         characterCoordinate = new HashMap<Character, double[]>();
         this.window = window;
         this.levels = levels;
