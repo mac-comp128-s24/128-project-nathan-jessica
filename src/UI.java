@@ -3,6 +3,7 @@ import java.awt.geom.Rectangle2D;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsObject;
+import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
 
 /**
@@ -18,12 +19,15 @@ public class UI{
      */
     public UI(){
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
+        addBackground();
     }
 
-    //private addBackground(){
-        
-        //GraphicsObject object = new Rectangle(null, null);
-    //}
+    private void addBackground(){
+        Image image = new Image("res/movie_theater.png");
+        image.setMaxHeight(800);
+        image.setMaxWidth(1500);
+        window.add(image);
+    }
 
     public static void main(String[] args) {
         new UI();
