@@ -3,11 +3,16 @@
  * 
  */
 public class MemoryGame {
-    private static UI ui;
-    private static CharacterManager manager;
+    private static CharacterManager charManager;
+    private static InputManager inputManager;
 
-    public static void main(String[] args) {
-        ui = new UI();
-        manager = new CharacterManager();
+    private static Levels levels;
+    private static int currentLevel;
+
+    private static int lifeLeft;
+
+
+    public MemoryGame(){
+        
     }
 }
