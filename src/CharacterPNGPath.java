@@ -21,8 +21,8 @@ public class CharacterPNGPath{
 
     /**
      * 
-     * @param name
-     * @return
+     * @param name of the character
+     * @return Path of the character PNG
      */
     public String get(String name){
         return characterPath.get(name);
