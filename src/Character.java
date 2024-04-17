@@ -26,29 +26,25 @@ public class Character extends Image{
     }
 
     /**
-     * @return
+     * @return name of the character
      */
     private String getName(){
         return name;
     }
 
+    /**
+     * @return path of the source PNG
+     */
     private String getPath(){
         return pngPath;
     }
 
+    /**
+     * Set the name of the character with the argument
+     * @param name
+     */
     private void setName(String name){
         this.name = name;
     }
 
-    private void appear(){
-        
-    }
-
-    private void clicked(){
-        
-    }
-
-    private void checkQueue(){
-
-    }
 }

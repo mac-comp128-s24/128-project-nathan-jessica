@@ -14,4 +14,9 @@ public class Levels {
     public Levels(){
         levels.put(1, level1);
     }
+
+    
+    public static String[] get(int levelNumber){
+        return levels.get(levelNumber);
+    }
 }

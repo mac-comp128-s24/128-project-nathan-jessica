@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+
+import edu.macalester.graphics.CanvasWindow;
+
 import java.util.Queue;
 
 /**
@@ -9,26 +12,38 @@ import java.util.Queue;
  */
 public class CharacterManager {
     private static Queue<Character> characterSequence;
+    private static HashMap<Character, String> characterPath
     private static HashMap<Character, double[]> characterCoordinate;
 
+    private static CanvasWindow window;
+    private static Levels levels;
 
+    private static int currentLevel;
 
     private static Random random = new Random();
     
-    public CharacterManager(){
+    public CharacterManager(CanvasWindow window, Levels levels){
         characterSequence = new LinkedList<>();
         characterCoordinate = new HashMap<Character, double[]>();
+        this.window = window;
+        this.levels = levels;
     }
 
-    public void placeCharacter(){
-        
+    private void setCurrentLevel(int level){
+        this.currentLevel = level;
     }
 
-    public double[] getCoordinate(Character character){
+    private void placeCharacter(){
+        String[] characterAvailable = levels.get(currentLevel);
+        int characterIndex = randomInt(characterAvailable.length);
+        Character character = new Character(null, characterAvailable[characterIndex], this);
+    }
+
+    private double[] getCoordinate(Character character){
         return characterCoordinate.get(character);
     }
 
-    public int randomInt(){
-        return random.nextInt();
+    private int randomInt(int limit){
+        return random.nextInt(limit);
     }
 }
