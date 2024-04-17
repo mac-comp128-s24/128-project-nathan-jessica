@@ -27,7 +27,7 @@ public class UI{
 
     public static void main(String[] args) {
         new UI();
-        //new CharacterManager(window, null);
+        new CharacterManager(window);
     }
 
 }

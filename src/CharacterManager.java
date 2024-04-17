@@ -27,13 +27,13 @@ public class CharacterManager {
     private static final int MIN_SIZE = 50;
     private static final int MAX_SIZE = 100;
     
-    public CharacterManager(CanvasWindow window, Levels levels){
+    public CharacterManager(CanvasWindow window){
         characterSequence = new LinkedList<>();
         characterPathMap = new CharacterPNGPath();
         characterCoordinate = new HashMap<Character, double[]>();
         pathDirectory = new CharacterPNGPath();
         this.window = window;
-        this.levels = levels;
+        this.levels = new Levels();
     }
 
     public void setCurrentLevel(int level){
