@@ -8,15 +8,27 @@ import java.util.ArrayDeque;
  */
 public class InputManager {
     private static CanvasWindow window;
-    private CharacterManager characterManager = new CharacterManager(window, null);
+    private CharacterManager characterManager;
 
-    public InputManager(CanvasWindow window){
+    public InputManager(CanvasWindow window, CharacterManager characterManager){
         this.window = window;
+        this.characterManager = characterManager;
     }
 
 
-    public Character getCharacter(Point clickedPoint){
-        return 
+    private boolean testHit(Point clickedPoint){
+        double clickedX = clickedPoint.getX();
+        double clickedY = clickedPoint.getY();
+        double[] coordinates = characterManager.getFirstCharacterCoordinate();
+        if(clickedX <= coordinates[2] && clickedX >= coordinates[1]){
+            return true;
+        }
+        else if(clickedY <= coordinates[4] && clickedY >= coordinates[3]){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

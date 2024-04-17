@@ -48,8 +48,8 @@ public class CharacterManager {
         return random.nextInt(limit);
     }
 
-    /
-    private double[] getFirstCharacterCoordinate(){
+    
+    public double[] getFirstCharacterCoordinate(){
         return getCoordinate(characterSequence.peek());
     }
 }
