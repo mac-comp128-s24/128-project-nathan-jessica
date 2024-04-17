@@ -30,11 +30,11 @@ public class CharacterManager {
         this.levels = levels;
     }
 
-    private void setCurrentLevel(int level){
+    public void setCurrentLevel(int level){
         this.currentLevel = level;
     }
 
-    private void placeCharacter(){
+    public void placeCharacter(){
         String[] characterAvailable = levels.get(currentLevel);
         int characterIndex = randomInt(characterAvailable.length);
         Character character = new Character(null, characterAvailable[characterIndex], this);

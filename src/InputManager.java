@@ -16,19 +16,17 @@ public class InputManager {
     }
 
 
-    private boolean testHit(Point clickedPoint){
+    public boolean testHit(Point clickedPoint){
         double clickedX = clickedPoint.getX();
         double clickedY = clickedPoint.getY();
         double[] coordinates = characterManager.getFirstCharacterCoordinate();
-        if(clickedX <= coordinates[2] && clickedX >= coordinates[1]){
-            return true;
-        }
-        else if(clickedY <= coordinates[4] && clickedY >= coordinates[3]){
-            return true;
-        }
-        else{
+        if(clickedX > coordinates[2] || clickedX < coordinates[1]){
             return false;
         }
+        if(clickedY > coordinates[4] || clickedY < coordinates[3]){
+            return false;
+        }
+        return true;
     }
 
 }
