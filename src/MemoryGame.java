@@ -20,5 +20,9 @@ public class MemoryGame {
         currentLevel = 1;
 
         charManager.placeCharacter();
+
+        window.onMouseDown(event -> inputManager.memoryClick(event.getPosition()));
     }
+
+
 }

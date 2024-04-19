@@ -19,6 +19,7 @@ public class CharacterManager {
     private CanvasWindow window;
     private Levels levels;
     private static CharacterPNGPath pathDirectory;
+    private static double timer = 10;
 
     private int currentLevel;
 
@@ -52,6 +53,20 @@ public class CharacterManager {
         characterSequence.offer(character);
     }
 
+    private boolean characterPlaced(Character character){
+        if(characterSequence.peek() != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public void removeCharacter(){
+        window.remove(characterSequence.peek());
+        characterSequence.poll();
+    }
+
     private double[] getCoordinate(Character character){
         return characterCoordinate.get(character);
     }
@@ -74,5 +89,19 @@ public class CharacterManager {
     
     public double[] getFirstCharacterCoordinate(){
         return getCoordinate(characterSequence.peek());
+    }
+
+    private void placeTimer(){
+        for(Character hero: characterSequence){
+            placeCharacter();
+            window.animate((dt) -> {
+                if (characterPlaced(hero) == true) {
+                    timer -= dt;
+                }
+            });
+            if(timer != 0){
+                break;
+            }
+        }
     }
 }

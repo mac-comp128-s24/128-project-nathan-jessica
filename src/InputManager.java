@@ -9,6 +9,7 @@ import java.util.ArrayDeque;
 public class InputManager {
     private static CanvasWindow window;
     private CharacterManager characterManager;
+    //private int lives = 1;
 
     public InputManager(CanvasWindow window, CharacterManager characterManager){
         this.window = window;
@@ -27,6 +28,15 @@ public class InputManager {
             return false;
         }
         return true;
+    }
+
+    public void memoryClick(Point clickedPoint){
+        if(testHit(clickedPoint) == true){
+            characterManager.removeCharacter();
+        }
+        else{
+            
+        }
     }
 
 }
