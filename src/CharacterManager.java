@@ -25,8 +25,8 @@ public class CharacterManager {
 
     private static Random random = new Random();
 
-    private static final int MIN_SIZE = 50;
-    private static final int MAX_SIZE = 100;
+    private static final int MIN_SIZE = 100;
+    private static final int MAX_SIZE = 200;
     
     public CharacterManager(CanvasWindow window){
         characterSequence = new LinkedList<>();
@@ -50,8 +50,8 @@ public class CharacterManager {
         
         window.add(character);
 
-        //character.setMaxHeight(randomSize());
-        //character.setPosition(randomCoordinate());
+        character.setMaxHeight(randomSize());
+        character.setPosition(randomCoordinate());
         characterSequence.offer(character);
     }
 

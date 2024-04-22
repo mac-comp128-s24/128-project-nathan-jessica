@@ -25,14 +25,14 @@ public class Character extends Image{
     /**
      * @return name of the character
      */
-    private String getName(){
+    public String getName(){
         return name;
     }
 
     /**
      * @return path of the source PNG
      */
-    private String getPath(){
+    public String getPath(){
         return pngPath;
     }
 

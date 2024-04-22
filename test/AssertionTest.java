@@ -19,11 +19,9 @@ public class AssertionTest {
         manager.setCurrentLevel(1);
     }
 
-
     @Test
     public void testPlaceCharacter(){
         manager.placeCharacter();
-        System.out.println(manager.getCharacterSequence().size());
         assertEquals(1, 1);
     }
 }
