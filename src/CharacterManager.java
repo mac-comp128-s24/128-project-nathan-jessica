@@ -13,7 +13,6 @@ import java.util.Queue;
  */
 public class CharacterManager {
     private static Queue<Character> characterSequence;
-    private static CharacterPNGPath characterPathMap;
     private static HashMap<Character, double[]> characterCoordinate;
 
     private CanvasWindow window;
@@ -30,7 +29,6 @@ public class CharacterManager {
     
     public CharacterManager(CanvasWindow window){
         characterSequence = new LinkedList<>();
-        characterPathMap = new CharacterPNGPath();
         characterCoordinate = new HashMap<Character, double[]>();
         pathDirectory = new CharacterPNGPath();
         this.window = window;
@@ -44,12 +42,15 @@ public class CharacterManager {
     public void placeCharacter(){
         String[] characterAvailable = Levels.get(currentLevel);
         int characterIndex = randomInt(characterAvailable.length);
+        System.out.println(characterIndex);
         String characterName = characterAvailable[characterIndex];
+        System.out.println(characterName);
         Character character = new Character(pathDirectory.get(characterName), characterName);
         
-        character.setMaxHeight(randomSize());
-        character.setPosition(randomCoordinate());
         window.add(character);
+
+        //character.setMaxHeight(randomSize());
+        //character.setPosition(randomCoordinate());
         characterSequence.offer(character);
     }
 
