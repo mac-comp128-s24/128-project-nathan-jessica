@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 import edu.macalester.graphics.CanvasWindow;
 
 public class AssertionTest {
-    CanvasWindow window;
-    CharacterManager manager;
+    private static CanvasWindow window;
+    private static CharacterManager manager;
 
     @BeforeAll
-    public void setUp(){
+    public static void setUp(){
         window = new CanvasWindow("Character Placement Test", 800, 800);
         manager = new CharacterManager(window);
         manager.setCurrentLevel(1);
@@ -22,6 +22,6 @@ public class AssertionTest {
     @Test
     public void testPlaceCharacter(){
         manager.placeCharacter();
-        assertEquals(1, 1);
+        assertEquals(1, manager.getCharacterSequence().size());
     }
 }
