@@ -10,4 +10,9 @@ public class PlaceCharacterTest {
         manager.setCurrentLevel(1);
         manager.placeCharacter();
     }
+
+    @Test
+    public void testPlaceCharacter(){
+        
+    }
 }
