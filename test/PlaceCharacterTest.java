@@ -11,4 +11,9 @@ public class PlaceCharacterTest {
         window.add(character);
         //manager.placeCharacter();
     }
+
+    @Test
+    public void testPlaceCharacter(){
+        
+    }
 }
