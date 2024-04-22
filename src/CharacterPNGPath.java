@@ -7,16 +7,16 @@ public class CharacterPNGPath{
      * 
      */
     public CharacterPNGPath(){
-        characterPath.put("Black Panther", "res/black.panther.png");
-        characterPath.put("Black Widow", "res/black.widow.png");
-        characterPath.put("Captain America", "res/captain.america.png");
-        characterPath.put("Hawkeye", "res/hawkeye.png");
-        characterPath.put("Hulk", "res/hulk.png");
-        characterPath.put("Iron Man", "res/iron.man.png");
-        characterPath.put("Scarlet Witch", "res/scarlet.witch.png");
-        characterPath.put("Star Lord", "res/star.lord.png");
-        characterPath.put("Thor", "res/thor.png");
-        characterPath.put("Vision", "res/vision.png");
+        characterPath.put("Black Panther", "blackpanther.png");
+        characterPath.put("Black Widow", "blackwidow.png");
+        characterPath.put("Captain America", "captainamerica.png");
+        characterPath.put("Hawkeye", "hawkeye.png");
+        characterPath.put("Hulk", "hulk.png");
+        characterPath.put("Iron Man", "ironman.png");
+        characterPath.put("Scarlet Witch", "scarletwitch.png");
+        characterPath.put("Star Lord", "starlord.png");
+        characterPath.put("Thor", "thor.png");
+        characterPath.put("Vision", "vision.png");
     }
 
     /**
