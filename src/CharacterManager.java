@@ -107,7 +107,7 @@ public class CharacterManager {
         }
     }
 
-    private Queue<Character> getCharacterSequence(){
+    public Queue<Character> getCharacterSequence(){
         return characterSequence;
     }
 }

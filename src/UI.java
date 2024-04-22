@@ -11,7 +11,7 @@ import edu.macalester.graphics.Rectangle;
  */
 public class UI{
     private static CanvasWindow window;
-    private final static int WINDOW_HEIGHT = 800;
+    private final static int WINDOW_HEIGHT = 1000;
     private final static int WINDOW_WIDTH = 1500;
 
     /**
@@ -24,8 +24,8 @@ public class UI{
 
     private void addBackground(){
         Image image = new Image("movie_theater.png");
-        image.setMaxHeight(WINDOW_HEIGHT);
-        image.setMaxWidth(WINDOW_WIDTH);
+        image.setMaxHeight(1000);
+        image.setMaxWidth(1500);
         window.add(image);
     }
 
