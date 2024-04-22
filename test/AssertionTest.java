@@ -9,9 +9,8 @@ import org.junit.jupiter.api.Test;
 import edu.macalester.graphics.CanvasWindow;
 
 public class AssertionTest {
-    
-    CharacterManager manager = new CharacterManager(null);
-    Queue<Character> characterSequence = new LinkedList<>();
+    CanvasWindow window = new CanvasWindow("testWindow", 100, 500);
+    CharacterManager manager = new CharacterManager(window);
 
     @Test
     public void testPlaceCharacter(){
