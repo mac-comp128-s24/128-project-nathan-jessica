@@ -6,7 +6,7 @@ import edu.macalester.graphics.CanvasWindow;
 
 public class PlaceCharacterTest {
 
-    CharacterManager
+
 
     public static void main(String[] args) {
         CanvasWindow window = new CanvasWindow("Character Placement Test", 800, 800);

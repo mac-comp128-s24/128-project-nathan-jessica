@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+import java.util.Collections;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Point;
@@ -104,5 +105,9 @@ public class CharacterManager {
                 break;
             }
         }
+    }
+
+    private Queue<Character> getCharacterSequence(){
+        return characterSequence;
     }
 }

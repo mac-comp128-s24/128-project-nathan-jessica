@@ -24,8 +24,8 @@ public class UI{
 
     private void addBackground(){
         Image image = new Image("movie_theater.png");
-        image.setMaxHeight(800);
-        image.setMaxWidth(1500);
+        image.setMaxHeight(WINDOW_HEIGHT);
+        image.setMaxWidth(WINDOW_WIDTH);
         window.add(image);
     }
 
