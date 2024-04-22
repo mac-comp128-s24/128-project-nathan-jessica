@@ -16,7 +16,7 @@ public class Levels {
     }
 
     
-    public static String[] get(int levelNumber){
+    public String[] get(int levelNumber){
         return levels.get(levelNumber);
     }
 }

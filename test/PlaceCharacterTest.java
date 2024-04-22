@@ -7,8 +7,7 @@ public class PlaceCharacterTest {
     public static void main(String[] args) {
         CanvasWindow window = new CanvasWindow("Character Placement Test", 800, 800);
         CharacterManager manager = new CharacterManager(window);
-        Character character = new Character("blackpanther.png", "Black Panther");
-        window.add(character);
-        //manager.placeCharacter();
+        manager.setCurrentLevel(1);
+        manager.placeCharacter();
     }
 }

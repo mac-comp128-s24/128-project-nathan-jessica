@@ -40,7 +40,7 @@ public class CharacterManager {
     }
 
     public void placeCharacter(){
-        String[] characterAvailable = Levels.get(currentLevel);
+        String[] characterAvailable = levels.get(currentLevel);
         int characterIndex = randomInt(characterAvailable.length);
         System.out.println(characterIndex);
         String characterName = characterAvailable[characterIndex];
