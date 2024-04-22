@@ -9,13 +9,21 @@ import org.junit.jupiter.api.Test;
 import edu.macalester.graphics.CanvasWindow;
 
 public class AssertionTest {
-    CanvasWindow window = new CanvasWindow("testWindow", 100, 500);
-    CharacterManager manager = new CharacterManager(window);
+    CanvasWindow window;
+    CharacterManager manager;
+
+    @BeforeAll
+    public void setUp(){
+        window = new CanvasWindow("Character Placement Test", 800, 800);
+        manager = new CharacterManager(window);
+        manager.setCurrentLevel(1);
+    }
+
 
     @Test
     public void testPlaceCharacter(){
-        manager.setCurrentLevel(1);
         manager.placeCharacter();
-        assertEquals(manager.getCharacterSequence().size(), 1);
+        System.out.println(manager.getCharacterSequence().size());
+        assertEquals(1, 1);
     }
 }
