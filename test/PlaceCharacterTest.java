@@ -19,6 +19,8 @@ public class PlaceCharacterTest {
         manager.setCurrentLevel(1);
         manager.placeCharacter();
         GraphicsText name = new GraphicsText(manager.getCharacterSequence().peek().getName());
+        name.setPosition(0,0);
+        name.setFontSize(24);
         window.add(name);
     }
 }
