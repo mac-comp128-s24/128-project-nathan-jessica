@@ -17,10 +17,12 @@ public class PlaceCharacterTest {
        
         CharacterManager manager = new CharacterManager(window);
         manager.setCurrentLevel(1);
+        
         manager.placeCharacter();
+
         GraphicsText name = new GraphicsText(manager.getCharacterSequence().peek().getName());
-        name.setPosition(0,0);
-        name.setFontSize(24);
+        name.setCenter(300,50);
+        name.setFontSize(50);
         window.add(name);
     }
 }
