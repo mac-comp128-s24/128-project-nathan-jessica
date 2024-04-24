@@ -1,5 +1,6 @@
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.Color;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsObject;
@@ -22,11 +23,16 @@ public class UI{
         addBackground();
     }
 
+    // private void addBackground(){
+    //     Image image = new Image("movie_theater.png");
+    //     image.setMaxHeight(1000);
+    //     image.setMaxWidth(1500);
+    //     window.add(image);
+    // }
+
     private void addBackground(){
-        Image image = new Image("movie_theater.png");
-        image.setMaxHeight(1000);
-        image.setMaxWidth(1500);
-        window.add(image);
+        Rectangle background = new Rectangle(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+        background.setFillColor(Color.red);
     }
 
     public static void main(String[] args) {
