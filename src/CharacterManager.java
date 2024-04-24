@@ -82,9 +82,9 @@ public class CharacterManager {
     }
 
     public void removeCharacter(){
-        if(characterSequence != null){
-        window.remove(characterSequence.peek());
-        characterSequence.poll();
+        if (!characterSequence.isEmpty()) {
+            window.remove(characterSequence.peek());
+            characterSequence.poll();
         }
     }
 
