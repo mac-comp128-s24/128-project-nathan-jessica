@@ -55,9 +55,21 @@ public class CharacterManager {
         
         window.add(character);
 
-        character.setMaxHeight(randomSize());
-        character.setPosition(randomCoordinate());
+        int size = randomSize();
+        Point coordinate = randomCoordinate();
+
+        character.setMaxHeight(size);
+        character.setPosition(coordinate);
+
+        double minX = (double) coordinate.getX();
+        double maxX = coordinate.getX() + character.getWidth();
+        double minY = (double) coordinate.getY();
+        double maxY = coordinate.getY() + character.getHeight();
+        
+        double[] coordinateRange = {minX, maxX, minY, maxY};
+
         characterSequence.offer(character);
+        characterCoordinate.put(character, coordinateRange);
     }
 
     private boolean characterPlaced(Character character){
