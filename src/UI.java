@@ -21,19 +21,21 @@ public class UI{
     public UI(){
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
         addBackground();
+        addScreen();
     }
-
-    // private void addBackground(){
-    //     Image image = new Image("movie_theater.png");
-    //     image.setMaxHeight(1000);
-    //     image.setMaxWidth(1500);
-    //     window.add(image);
-    // }
 
     private void addBackground(){
         Rectangle background = new Rectangle(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
         background.setFillColor(Color.red);
+        window.add(background);
     }
+
+    private void addScreen(){
+        Rectangle screen = new Rectangle(80,50, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
+        screen.setFillColor(Color.WHITE);
+        window.add(screen);
+    }
+
 
     public static void main(String[] args) {
         new UI();

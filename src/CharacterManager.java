@@ -19,7 +19,7 @@ public class CharacterManager {
     private CanvasWindow window;
     private Levels levels;
     private static CharacterPNGPath pathDirectory;
-    private static double timer = 10;
+    private static double timer = 1;
 
     private int currentLevel;
 
@@ -70,8 +70,10 @@ public class CharacterManager {
     }
 
     public void removeCharacter(){
+        if(characterSequence != null){
         window.remove(characterSequence.peek());
         characterSequence.poll();
+        }
     }
 
     private double[] getCoordinate(Character character){
