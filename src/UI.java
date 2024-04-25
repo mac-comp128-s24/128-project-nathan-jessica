@@ -39,7 +39,9 @@ public class UI{
 
     public static void main(String[] args) {
         new UI();
-        new CharacterManager(window);
+        MemoryGame game = new MemoryGame(window);
+        game.newGame(1);
+
     }
 
 }

@@ -30,13 +30,4 @@ public class InputManager {
         return true;
     }
 
-    public void memoryClick(Point clickedPoint){
-        if(testHit(clickedPoint) == true){
-            characterManager.removeCharacter();
-        }
-        else{
-            
-        }
-    }
-
 }

@@ -19,7 +19,7 @@ public class CharacterManager {
     private CanvasWindow window;
     private Levels levels;
     private static CharacterPNGPath pathDirectory;
-    private static double timer = 1;
+    private long timer = 1;
 
     private int currentLevel;
 
@@ -89,7 +89,12 @@ public class CharacterManager {
     }
 
     private double[] getCoordinate(Character character){
-        return characterCoordinate.get(character);
+        double[] coordinate = characterCoordinate.get(character).clone();
+        return coordinate;
+    }
+
+    public double[] getFirstCharacterCoordinate(){
+        return getCoordinate(characterSequence.peek()).clone();
     }
 
     private int randomInt(int limit){
@@ -108,24 +113,6 @@ public class CharacterManager {
         return new Point(randomInt(window.getWidth()-MIN_SIZE), randomInt(window.getHeight()-MIN_SIZE));
     }
     
-    public double[] getFirstCharacterCoordinate(){
-        return getCoordinate(characterSequence.peek());
-    }
-
-    private void placeTimer(){
-        for(Character hero: characterSequence){
-            placeCharacter();
-            window.animate((dt) -> {
-                if (characterPlaced(hero) == true) {
-                    timer -= dt;
-                }
-            });
-            if(timer != 0){
-                break;
-            }
-        }
-    }
-
     public Queue<Character> getCharacterSequence(){
         return characterSequence;
     }
