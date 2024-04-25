@@ -1,7 +1,7 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Point;
 
-import java.util.concurrent.TimeUnit;
+import java.util.Timer;
 
 /**
  * 
@@ -17,6 +17,8 @@ public class MemoryGame {
     private static int lifeLeft;
     private static boolean win;
 
+    private static Timer timer = new Timer();
+
 
     public MemoryGame(CanvasWindow window){
         this.window = window;
@@ -28,6 +30,7 @@ public class MemoryGame {
     public void newGame(int level) {
         this.currentLevel = level;
         charManager.setCurrentLevel(currentLevel);
+
         this.lifeLeft = levels.getLifesLeft(currentLevel);
 
         window.onMouseDown(event -> onClick(event.getPosition()));
@@ -39,27 +42,30 @@ public class MemoryGame {
             charManager.removeCharacter();
         }
         else{
-            endGame();
+            lifeLeft -= 1;
         }
     }
 
     private void addCharacterSequence(double initialSpeed) {
-        double pause = initialSpeed;
-        while (lifeLeft > 0) {
+        double pauseTime = initialSpeed;
+        //while (lifeLeft > 0) {
             charManager.placeCharacter();
-            // try {
-            //     TimeUnit.SECONDS.sleep((long) pause);
-            // } catch (InterruptedException e) {
-            //     // TODO Auto-generated catch block
-            //     e.printStackTrace();
-            // }
-            //window.wait((long)pause);
-            pause = pause * 0.9;
-        }
+            //window.pause(pauseTime*1000);
+            pauseTime = pauseTime * 0.95;
+        //}
     }
 
+    // //https://stackoverflow.com/a/48246529 by M Imam Pratama
+    // public static void pause(double seconds) {
+    //     try {
+    //         Thread.sleep((long) (seconds * 1000));
+    //     } catch (InterruptedException e) {
+    //         System.out.println("Pause Failed");
+    //     }
+    // }
+
     private void endGame(){
-        window.removeAll();
+       
     }
 
 }
