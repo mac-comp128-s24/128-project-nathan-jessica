@@ -6,6 +6,7 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
+import edu.macalester.graphics.ui.Button;
 
 /**
  * 
@@ -22,6 +23,7 @@ public class UI{
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
         addBackground();
         addScreen();
+        addButton();
     }
 
     private void addBackground(){
@@ -34,6 +36,11 @@ public class UI{
         Rectangle screen = new Rectangle(80,50, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
         screen.setFillColor(Color.WHITE);
         window.add(screen);
+    }
+
+    private void addButton(){
+        Button enter = new Button("Enter");
+        window.add(enter, WINDOW_WIDTH - 100, WINDOW_HEIGHT / 1.5);
     }
 
 
