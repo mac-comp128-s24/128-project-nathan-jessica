@@ -42,18 +42,18 @@ public class MemoryGame {
         this.timeSurvived = 0;
 
         GraphicsText timeScoreLabel = new GraphicsText("You survived: ");
-        timeScore.setText("" + (int) timeSurvived);
+        timeScore.setText("" + (int) timeSurvived + " seconds");
         
-        timeScoreLabel.setPosition(10, 10);
-        timeScore.setPosition(10 + timeScoreLabel.getWidth() + 20, 10);
+        timeScoreLabel.setPosition(50, 35);
+        timeScoreLabel.setFontSize(24);
+        timeScore.setPosition(50 + timeScoreLabel.getWidth() + 20, 35);
+        timeScore.setFontSize(24);
         window.add(timeScoreLabel);
         window.add(timeScore);
 
         window.onMouseDown(event -> onClick(event.getPosition()));
 
-        //charManager.placeCharacter();
         window.animate(dt -> addCharacterSequence(dt));
-        //addCharacterSequence();
     }
 
     private void onClick(Point clickedPoint){
@@ -71,17 +71,6 @@ public class MemoryGame {
         }
     }
 
-    // private void addCharacterSequence(double initialSpeed) {
-    //     double pauseTime = initialSpeed;
-    //     while (lifeLeft > 0) {
-    //         charManager.placeCharacter();
-    //         window.draw();
-    //         pause(pauseTime);
-    //         pauseTime = pauseTime * 0.95;
-    //     }
-    //     endGame();
-    // }
-
     private void addCharacterSequence(double dt){
         if (lifeLeft > 0) {
             if (timeElapsed >= pauseTime) {
@@ -91,7 +80,7 @@ public class MemoryGame {
         }
         timeElapsed += dt;
         timeSurvived += dt;
-        timeScore.setText("" + (int) timeSurvived);
+        timeScore.setText("" + (int) timeSurvived  + " seconds");
         }
         else {
             endGame();
