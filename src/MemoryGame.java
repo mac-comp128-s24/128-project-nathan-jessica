@@ -1,4 +1,5 @@
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Point;
 
 import java.awt.Color;
@@ -18,7 +19,10 @@ public class MemoryGame {
 
     private static int lifeLeft;
 
-    private static Timer timer = new Timer();
+    private static double pauseTime;
+    private static double timeElapsed;
+    private static double timeSurvived;
+    private GraphicsText timeScore = new GraphicsText();
 
 
     public MemoryGame(CanvasWindow window){
@@ -33,11 +37,23 @@ public class MemoryGame {
         charManager.setCurrentLevel(currentLevel);
 
         this.lifeLeft = levels.getLifesLeft(currentLevel);
+        this.pauseTime = levels.getInitialSpeed(currentLevel);
+        this.timeElapsed = 0;
+        this.timeSurvived = 0;
+
+        GraphicsText timeScoreLabel = new GraphicsText("You survived: ");
+        timeScore.setText("" + (int) timeSurvived);
+        
+        timeScoreLabel.setPosition(10, 10);
+        timeScore.setPosition(10 + timeScoreLabel.getWidth() + 20, 10);
+        window.add(timeScoreLabel);
+        window.add(timeScore);
 
         window.onMouseDown(event -> onClick(event.getPosition()));
 
-        charManager.placeCharacter();
-        //addCharacterSequence(levels.getInitialSpeed(currentLevel));
+        //charManager.placeCharacter();
+        window.animate(dt -> addCharacterSequence(dt));
+        //addCharacterSequence();
     }
 
     private void onClick(Point clickedPoint){
@@ -55,15 +71,31 @@ public class MemoryGame {
         }
     }
 
-    private void addCharacterSequence(double initialSpeed) {
-        double pauseTime = initialSpeed;
-        while (lifeLeft > 0) {
+    // private void addCharacterSequence(double initialSpeed) {
+    //     double pauseTime = initialSpeed;
+    //     while (lifeLeft > 0) {
+    //         charManager.placeCharacter();
+    //         window.draw();
+    //         pause(pauseTime);
+    //         pauseTime = pauseTime * 0.95;
+    //     }
+    //     endGame();
+    // }
+
+    private void addCharacterSequence(double dt){
+        if (lifeLeft > 0) {
+            if (timeElapsed >= pauseTime) {
             charManager.placeCharacter();
-            window.draw();
-            pause(pauseTime);
-            pauseTime = pauseTime * 0.95;
+            timeElapsed = 0;
+            pauseTime *= 0.95;
         }
-        endGame();
+        timeElapsed += dt;
+        timeSurvived += dt;
+        timeScore.setText("" + (int) timeSurvived);
+        }
+        else {
+            endGame();
+        }
     }
 
     //https://www.baeldung.com/java-measure-elapsed-time
@@ -81,7 +113,6 @@ public class MemoryGame {
     private void endGame(){
        window.removeAll();
        window.setBackground(Color.BLACK);
-       window.draw();
     }
 
 }
