@@ -20,14 +20,33 @@ public class InputManager {
     public boolean testHit(Point clickedPoint){
         double clickedX = clickedPoint.getX();
         double clickedY = clickedPoint.getY();
+        System.out.println("Clicked: " + clickedX + ", " + clickedY);
         double[] coordinates = characterManager.getFirstCharacterCoordinate();
-        if(clickedX > coordinates[2] || clickedX < coordinates[1]){
+        for (double gotCoordinate: coordinates) {
+            System.out.println("Got from first:" + gotCoordinate + " --> ");
+        }
+        if (clickedX < coordinates[1] && clickedX > coordinates[0]){
+            System.out.println("x in bound");
+            if (clickedY < coordinates[3] && clickedY > coordinates[2]){
+                System.out.println("y in bound");
+                System.out.println("HITTTTTT");
+                return true;
+                
+            }
+            else {
+                System.out.println("y out of bound");
+                return false;
+            }
+            
+        }
+        else{
+            System.out.println("x out of bound");
             return false;
         }
-        if(clickedY > coordinates[4] || clickedY < coordinates[3]){
-            return false;
-        }
-        return true;
+        // if(clickedY > coordinates[4] || clickedY < coordinates[3]){
+        //     System.out.println("y out of bound");
+        //     return false;
+        // }
     }
 
 }

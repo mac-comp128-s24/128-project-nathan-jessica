@@ -67,6 +67,9 @@ public class CharacterManager {
         double maxY = coordinate.getY() + character.getHeight();
         
         double[] coordinateRange = {minX, maxX, minY, maxY};
+        for (double coordinatePoint : coordinateRange){
+            System.out.println(coordinatePoint + " -> ");
+        }
 
         characterSequence.offer(character);
         characterCoordinate.put(character, coordinateRange);

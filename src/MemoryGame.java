@@ -34,10 +34,10 @@ public class MemoryGame {
 
         this.lifeLeft = levels.getLifesLeft(currentLevel);
 
-        window.onClick(event -> onClick(event.getPosition()));
+        window.onMouseDown(event -> onClick(event.getPosition()));
 
         charManager.placeCharacter();
-        addCharacterSequence(levels.getInitialSpeed(currentLevel));
+        //addCharacterSequence(levels.getInitialSpeed(currentLevel));
     }
 
     private void onClick(Point clickedPoint){
