@@ -1,5 +1,6 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsText;
+import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Point;
 
 import java.awt.Color;
@@ -101,7 +102,10 @@ public class MemoryGame {
 
     private void endGame(){
        window.removeAll();
-       window.setBackground(Color.BLACK);
+       window.setBackground(Color.GRAY);
+       Image gameOver = new Image("game_over_text.png");
+       gameOver.setCenter(window.getWidth()/2, window.getHeight()/2);
+       window.add(gameOver);
     }
 
 }
