@@ -23,7 +23,9 @@ public class UI{
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
         addBackground();
         addScreen();
-        addButton();
+        addLevel1Button();
+        //addLevel2Button();
+        //addLevel3Button();
     }
 
     private void addBackground(){
@@ -38,17 +40,42 @@ public class UI{
         window.add(screen);
     }
 
-    private void addButton(){
-        Button enter = new Button("Enter");
-        window.add(enter, WINDOW_WIDTH - 100, WINDOW_HEIGHT / 1.5);
+    private void addLevel1Button(){
+        Button firstLevel = new Button("Level 1");
+        window.add(firstLevel, WINDOW_WIDTH - 100, WINDOW_HEIGHT / 2);
+        firstLevel.onClick(() -> {
+            window.draw();
+            window.removeAll();
+            MemoryGame game = new MemoryGame(window);
+            game.newGame(1);
+        });
+    }
+
+    private void addLevel2Button(){
+        Button secondLevel = new Button("Level 2");
+        window.add(secondLevel, WINDOW_WIDTH - 150, WINDOW_HEIGHT / 2);
+        secondLevel.onClick(() -> {
+            window.draw();
+            window.removeAll();
+            MemoryGame game = new MemoryGame(window);
+            game.newGame(2);
+        });
+    }
+
+    private void addLevel3Button(){
+        Button firstLevel = new Button("Level 3");
+        window.add(firstLevel, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
+        firstLevel.onClick(() -> {
+            window.draw();
+            window.removeAll();
+            MemoryGame game = new MemoryGame(window);
+            game.newGame(3);
+        });
     }
 
 
     public static void main(String[] args) {
         new UI();
-        MemoryGame game = new MemoryGame(window);
-        game.newGame(1);
-
     }
 
 }
