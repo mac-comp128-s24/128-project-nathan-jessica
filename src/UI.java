@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsObject;
+import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
@@ -38,6 +39,10 @@ public class UI{
         Rectangle screen = new Rectangle(80,50, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
         screen.setFillColor(Color.WHITE);
         window.add(screen);
+    }
+
+    private void addTitle(){
+        GraphicsText title = new GraphicsText("If Thanos was the main character");
     }
 
     private void addLevel1Button(){
