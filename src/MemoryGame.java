@@ -15,7 +15,6 @@ public class MemoryGame {
     private static int currentLevel;
 
     private static int lifeLeft;
-    private static boolean win;
 
     private static Timer timer = new Timer();
 
@@ -33,36 +32,47 @@ public class MemoryGame {
 
         this.lifeLeft = levels.getLifesLeft(currentLevel);
 
-        window.onMouseDown(event -> onClick(event.getPosition()));
+        window.onClick(event -> onClick(event.getPosition()));
+
+        charManager.placeCharacter();
         addCharacterSequence(levels.getInitialSpeed(currentLevel));
     }
 
     private void onClick(Point clickedPoint){
+        System.out.println("Clicked-------------------------------------------");
         if(inputManager.testHit(clickedPoint)){
+            System.out.println("Hit!");
             charManager.removeCharacter();
+            System.out.println("Life Left:" + lifeLeft);
         }
         else{
+            System.out.println("NO HIT");
             lifeLeft -= 1;
+            System.out.println("Life Left:" + lifeLeft);
         }
     }
 
     private void addCharacterSequence(double initialSpeed) {
         double pauseTime = initialSpeed;
-        //while (lifeLeft > 0) {
+        while (lifeLeft > 0) {
             charManager.placeCharacter();
-            //window.pause(pauseTime*1000);
+            window.draw();
+            pause(pauseTime);
             pauseTime = pauseTime * 0.95;
-        //}
+        }
     }
 
-    // //https://stackoverflow.com/a/48246529 by M Imam Pratama
-    // public static void pause(double seconds) {
-    //     try {
-    //         Thread.sleep((long) (seconds * 1000));
-    //     } catch (InterruptedException e) {
-    //         System.out.println("Pause Failed");
-    //     }
-    // }
+    //https://www.baeldung.com/java-measure-elapsed-time
+    public static void pause(double seconds) {
+        long startTime = System.currentTimeMillis();
+        long timeNow = System.currentTimeMillis();
+        long timePast = timeNow - startTime;
+        while (timePast < seconds * 1000) {
+            timeNow = System.currentTimeMillis();
+            timePast = timeNow - startTime;
+        }
+        System.out.println(seconds + "second passed");
+    }
 
     private void endGame(){
        
