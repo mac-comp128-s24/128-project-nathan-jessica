@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsObject;
+import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
@@ -23,6 +24,7 @@ public class UI{
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
         addBackground();
         addScreen();
+        addThanos();
         addLevel1Button();
         //addLevel2Button();
         //addLevel3Button();
@@ -30,7 +32,7 @@ public class UI{
 
     private void addBackground(){
         Rectangle background = new Rectangle(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
-        background.setFillColor(Color.red);
+        background.setFillColor(Color.black);
         window.add(background);
     }
 
@@ -40,9 +42,19 @@ public class UI{
         window.add(screen);
     }
 
+    private void addTitle(){
+        GraphicsText title = new GraphicsText("Thanos Memory Game");
+    }
+
+    private void addThanos(){
+        Image thanos = new Image("thanos.png");
+        thanos.setPosition(500,500);
+        window.add(thanos);
+    }
+
     private void addLevel1Button(){
         Button firstLevel = new Button("Level 1");
-        window.add(firstLevel, WINDOW_WIDTH - 100, WINDOW_HEIGHT / 2);
+        window.add(firstLevel, WINDOW_WIDTH - 700, WINDOW_HEIGHT - 900);
         firstLevel.onClick(() -> {
             window.draw();
             window.removeAll();
