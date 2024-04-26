@@ -1,6 +1,8 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Point;
 
+import java.awt.Color;
+
 import java.util.Timer;
 
 /**
@@ -43,6 +45,7 @@ public class MemoryGame {
         if(inputManager.testHit(clickedPoint)){
             System.out.println("Hit!");
             charManager.removeCharacter();
+            window.draw();
             System.out.println("Life Left:" + lifeLeft);
         }
         else{
@@ -60,6 +63,7 @@ public class MemoryGame {
             pause(pauseTime);
             pauseTime = pauseTime * 0.95;
         }
+        endGame();
     }
 
     //https://www.baeldung.com/java-measure-elapsed-time
@@ -75,7 +79,9 @@ public class MemoryGame {
     }
 
     private void endGame(){
-       
+       window.removeAll();
+       window.setBackground(Color.BLACK);
+       window.draw();
     }
 
 }
