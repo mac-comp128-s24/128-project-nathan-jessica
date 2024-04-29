@@ -75,15 +75,6 @@ public class CharacterManager {
         characterCoordinate.put(character, coordinateRange);
     }
 
-    private boolean characterPlaced(Character character){
-        if(characterSequence.peek() != null){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
     public void removeCharacter(){
         if (!characterSequence.isEmpty()) {
             window.remove(characterSequence.peek());
