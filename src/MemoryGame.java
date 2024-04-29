@@ -24,6 +24,8 @@ public class MemoryGame {
     private static double timeElapsed;
     private static double timeSurvived;
     private GraphicsText timeScore = new GraphicsText();
+    private GraphicsText lifeScore = new GraphicsText();
+    private Image background = new Image("ny.png");
 
 
     public MemoryGame(CanvasWindow window){
@@ -41,20 +43,38 @@ public class MemoryGame {
         this.pauseTime = levels.getInitialSpeed(currentLevel);
         this.timeElapsed = 0;
         this.timeSurvived = 0;
-
-        GraphicsText timeScoreLabel = new GraphicsText("You survived: ");
-        timeScore.setText("" + (int) timeSurvived + " seconds");
         
-        timeScoreLabel.setPosition(50, 35);
-        timeScoreLabel.setFontSize(24);
-        timeScore.setPosition(50 + timeScoreLabel.getWidth() + 20, 35);
-        timeScore.setFontSize(24);
-        window.add(timeScoreLabel);
-        window.add(timeScore);
+        setUpLabels();
 
         window.onMouseDown(event -> onClick(event.getPosition()));
 
         window.animate(dt -> addCharacterSequence(dt));
+    }
+
+    private void setUpLabels(){
+        GraphicsText timeScoreLabel = new GraphicsText("You survived: ");
+        timeScore.setText("" + (int) timeSurvived + " seconds");
+
+        GraphicsText lifeLabel = new GraphicsText("You have: ");
+        lifeScore.setText("" + lifeLeft + " lives left");
+
+        timeScoreLabel.setPosition(50, 35);
+        timeScoreLabel.setFontSize(24);
+
+        timeScore.setPosition(50 + timeScoreLabel.getWidth() + 20, 35);
+        timeScore.setFontSize(24);
+
+        window.add(timeScoreLabel);
+        window.add(timeScore);
+
+        lifeLabel.setPosition(50, 65);
+        lifeLabel.setFontSize(24);
+
+        lifeScore.setPosition(50 + timeScoreLabel.getWidth() + 20, 65);
+        lifeScore.setFontSize(24);
+
+        window.add(lifeLabel);
+        window.add(lifeScore);
     }
 
     private void onClick(Point clickedPoint){
@@ -68,6 +88,7 @@ public class MemoryGame {
         else{
             System.out.println("NO HIT");
             lifeLeft -= 1;
+            lifeScore.setText("" + lifeLeft  + "  lives left");
             System.out.println("Life Left:" + lifeLeft);
         }
     }
