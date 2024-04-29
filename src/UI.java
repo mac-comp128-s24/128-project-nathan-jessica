@@ -28,8 +28,8 @@ public class UI{
         addFirstThanos();
         addSecondThanos();
         addLevel1Button();
-        //addLevel2Button();
-        //addLevel3Button();
+        addLevel2Button();
+        addLevel3Button();
         addTitle();
     }
 
@@ -55,13 +55,17 @@ public class UI{
 
     private void addFirstThanos(){
         Image thanos = new Image("thanos_infinity.png");
-        thanos.setPosition(800,200);
+        thanos.setMaxWidth(200);
+        thanos.setMaxHeight(250);
+        thanos.setPosition(WINDOW_WIDTH - 300,WINDOW_HEIGHT - 700);
         window.add(thanos);
     }
 
     private void addSecondThanos(){
         Image thanos = new Image("thanos.png");
-        thanos.setPosition(0,200);
+        thanos.setPosition(80,325);
+        thanos.setMaxWidth(300);
+        thanos.setMaxHeight(500);
         window.add(thanos);
     }
 
@@ -78,7 +82,7 @@ public class UI{
 
     private void addLevel2Button(){
         Button secondLevel = new Button("Level 2");
-        window.add(secondLevel, WINDOW_WIDTH - 150, WINDOW_HEIGHT / 2);
+        window.add(secondLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 550);
         secondLevel.onClick(() -> {
             window.draw();
             window.removeAll();
@@ -89,7 +93,7 @@ public class UI{
 
     private void addLevel3Button(){
         Button firstLevel = new Button("Level 3");
-        window.add(firstLevel, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
+        window.add(firstLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 500);
         firstLevel.onClick(() -> {
             window.draw();
             window.removeAll();
