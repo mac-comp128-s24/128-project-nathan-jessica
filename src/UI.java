@@ -71,7 +71,7 @@ public class UI{
 
     private void addLevel1Button(){
         Button firstLevel = new Button("Level 1");
-        window.add(firstLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 600);
+        window.add(firstLevel, (WINDOW_WIDTH / 2) - 50, WINDOW_HEIGHT - 600);
         firstLevel.onClick(() -> {
             window.draw();
             window.removeAll();
@@ -82,7 +82,7 @@ public class UI{
 
     private void addLevel2Button(){
         Button secondLevel = new Button("Level 2");
-        window.add(secondLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 550);
+        window.add(secondLevel, (WINDOW_WIDTH / 2) - 50, WINDOW_HEIGHT - 550);
         secondLevel.onClick(() -> {
             window.draw();
             window.removeAll();
@@ -93,7 +93,7 @@ public class UI{
 
     private void addLevel3Button(){
         Button firstLevel = new Button("Level 3");
-        window.add(firstLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 500);
+        window.add(firstLevel, (WINDOW_WIDTH / 2) - 50, WINDOW_HEIGHT - 500);
         firstLevel.onClick(() -> {
             window.draw();
             window.removeAll();
