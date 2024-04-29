@@ -9,6 +9,7 @@ import java.awt.Color;
 
 /**
  * 
+ * 
  */
 public class MemoryGame {
     private static CharacterManager charManager;
@@ -93,18 +94,14 @@ public class MemoryGame {
     }
 
     private void onClick(Point clickedPoint){
-        System.out.println("Clicked-------------------------------------------");
         if(inputManager.testHit(clickedPoint)){
-            System.out.println("Hit!");
             avengersSnapped += 1;
             score.setText(avengersSnapped + " Avengers");
             charManager.removeCharacter();
         }
         else{
-            System.out.println("NO HIT");
             lifeLeft -= 1;
             lifeScore.setText("" + lifeLeft  + "  lives left");
-            System.out.println("Life Left:" + lifeLeft);
         }
     }
 

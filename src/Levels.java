@@ -9,10 +9,10 @@ public class Levels {
         {"Black Widow", "Captain America", "Hawkeye", "Hulk", "Iron Man", "Thor"};
     private static String[] level2 = 
         {"Black Widow", "Captain America", "Hawkeye", "Hulk", "Iron Man", "Thor", 
-        "Vision", "Wanda", "Quick Silver", "Falcon", "War Machine"};
+        "Vision", "Scarlet Witch", "Quick Silver", "Falcon", "War Machine"};
     private static String[] level3 = 
         {"Black Widow", "Captain America", "Hawkeye", "Hulk", "Iron Man", "Thor", 
-        "Vision", "Wanda", "Falcon", "Black Panther", "Baby Groot", "Star Lord", 
+        "Vision", "Scarlet Witch", "Falcon", "Black Panther", "Baby Groot", "Star Lord", 
         "Rocket", "Drax", "Spiderman", "Valkyrie", "Mantis", "Doctor Strange", 
         "Okoye", "War Machine", "Gamora"};
     private static int[] livesLeft = {3, 2, 1};

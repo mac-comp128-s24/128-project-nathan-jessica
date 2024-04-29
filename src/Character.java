@@ -4,7 +4,10 @@ import java.awt.geom.Rectangle2D;
 import edu.macalester.graphics.Image;
 
 /**
- * 
+ * A character object is an Graphics Image that stores its name and PNG path.
+ * @author Yunzhu (Jessica) Chen
+ * @author Nathan Gumagay
+ * COMP 128 SPRING 2024
  */
 public class Character extends Image{
     private static String pngPath;

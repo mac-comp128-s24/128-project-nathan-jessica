@@ -1,17 +1,18 @@
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.Color;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
-import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 
 /**
- * 
+ * Set up the main UI.
+ * Contains the Main Methods
+ * @author Yunzhu (Jessica) Chen
+ * @author Nathan Gumagay
+ * COMP 128 SPRING 2024
  */
 public class UI{
     private static CanvasWindow window;
@@ -19,13 +20,17 @@ public class UI{
     private final static int WINDOW_WIDTH = 1500;
 
     /**
-     * 
+     * Create a new UI object.
+     * Create a new window and set up the main menu.
      */
     public UI(){
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
         setUpMainMenu();
     }
 
+    /**
+     * Set up the main menu.
+     */
     private void setUpMainMenu(){
         addBackground();
         addScreen();
@@ -38,18 +43,27 @@ public class UI{
         addTitle();
     }
 
+    /**
+     * Add the background image of the main menu.
+     */
     private void addBackground(){
         Rectangle background = new Rectangle(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
         background.setFillColor(Color.red);
         window.add(background);
     }
 
+    /**
+     * Add the Screen imgae of the main menu.
+     */
     private void addScreen(){
         Rectangle screen = new Rectangle(80,50, WINDOW_WIDTH - 200, WINDOW_HEIGHT / 2);
         screen.setFillColor(Color.WHITE);
         window.add(screen);
     }
 
+    /**
+     * Add the title of the game to the main menu.
+     */
     private void addTitle(){
         GraphicsText title = new GraphicsText("Thanos Memory Game");
         title.setPosition(275, WINDOW_HEIGHT - 700);
@@ -58,6 +72,9 @@ public class UI{
         window.add(title);
     }
 
+    /**
+     * Add a Thanos image to the main menu.
+     */
     private void addFirstThanos(){
         Image thanos = new Image("thanos_infinity.png");
         thanos.setMaxWidth(200);
@@ -66,6 +83,9 @@ public class UI{
         window.add(thanos);
     }
 
+    /**
+     * Add another Thanos image to the main menu.
+     */
     private void addSecondThanos(){
         Image thanos = new Image("thanos.png");
         thanos.setPosition(80,325);
@@ -74,10 +94,15 @@ public class UI{
         window.add(thanos);
     }
 
+    /**
+     * Add the question button which displays the instruction to the game.
+     */
     private void addQuestionButton(){
         Button question = new Button("?");
         question.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 650);
+
         window.add(question);
+
         question.onClick(() -> {
             window.removeAll();
             GraphicsText questionAnswer = new GraphicsText();
@@ -85,6 +110,7 @@ public class UI{
             questionAnswer.setCenter(window.getCenter());
             window.add(questionAnswer);
 
+            // Add the Back button that goes back to the main menu.
             Button backButton = new Button("Back");
             backButton.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT-400);
             window.add(backButton);
@@ -95,6 +121,9 @@ public class UI{
         });
     }
 
+    /**
+     * Add the level 1 button which begins the game at level 1.
+     */
     private void addLevel1Button(){
         Button firstLevel = new Button("Battle of New York");
         firstLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 600);
@@ -106,6 +135,9 @@ public class UI{
         });
     }
 
+    /**
+     * Add the level 2 button which begins the game at level 2.
+     */
     private void addLevel2Button(){
         Button secondLevel = new Button("Age of Ultron");
         secondLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 550);
@@ -117,6 +149,9 @@ public class UI{
         });
     }
 
+    /**
+     * Add the level 3 button which begins the game at level 3.
+     */
     private void addLevel3Button(){
         Button thirdLevel = new Button("Infinity War");
         thirdLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 500);
