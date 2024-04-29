@@ -9,7 +9,10 @@ import java.awt.Color;
 
 /**
  * 
- * 
+ * MemoryGame holds most of the game mechanics and game setUp.
+ * @author Yunzhu (Jessica) Chen
+ * @author Nathan Gumagay
+ * COMP 128 SPRING 2024
  */
 public class MemoryGame {
     private static CharacterManager charManager;
@@ -24,6 +27,7 @@ public class MemoryGame {
     private static double pauseTime;
     private static double timeElapsed;
     private static int avengersSnapped;
+
     private GraphicsText score = new GraphicsText();
     private GraphicsText lifeScore = new GraphicsText();
 
@@ -31,7 +35,10 @@ public class MemoryGame {
 
     private Button backToMenu = new Button("Close");
 
-
+    /**
+     * 
+     * @param window 
+     */
     public MemoryGame(CanvasWindow window){
         this.window = window;
         charManager = new CharacterManager(window);
