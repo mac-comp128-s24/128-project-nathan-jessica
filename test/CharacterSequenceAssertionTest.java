@@ -1,15 +1,11 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.macalester.graphics.CanvasWindow;
 
-public class AssertionTest {
+public class CharacterSequenceAssertionTest {
     private static CanvasWindow window;
     private static CharacterManager manager;
 

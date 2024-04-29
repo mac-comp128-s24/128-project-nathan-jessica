@@ -23,6 +23,10 @@ public class UI{
      */
     public UI(){
         window = new CanvasWindow("Memory Game", WINDOW_WIDTH, WINDOW_HEIGHT);
+        setUpMainMenu();
+    }
+
+    private void setUpMainMenu(){
         addBackground();
         addScreen();
         addFirstThanos();
@@ -30,6 +34,7 @@ public class UI{
         addLevel1Button();
         addLevel2Button();
         addLevel3Button();
+        addQuestionButton();
         addTitle();
     }
 
@@ -47,7 +52,7 @@ public class UI{
 
     private void addTitle(){
         GraphicsText title = new GraphicsText("Thanos Memory Game");
-        title.setPosition(300, WINDOW_HEIGHT - 700);
+        title.setPosition(275, WINDOW_HEIGHT - 700);
         title.setFontStyle(FontStyle.BOLD_ITALIC);
         title.setFontSize(80);
         window.add(title);
@@ -69,11 +74,32 @@ public class UI{
         window.add(thanos);
     }
 
+    private void addQuestionButton(){
+        Button question = new Button("?");
+        question.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 650);
+        window.add(question);
+        question.onClick(() -> {
+            window.removeAll();
+            GraphicsText questionAnswer = new GraphicsText();
+            questionAnswer.setText("Members of the Avengers will appear in order.\nYour duty as Thanos is to snap them away one by one in order by clicking them. \nIf you snap out of order, you will lose a life. \nWhen all lives are lost, the game ends. \nIf you allow more than 5 avengers to be present at once, \nyou will die and the game ends.");
+            questionAnswer.setCenter(window.getCenter());
+            window.add(questionAnswer);
+
+            Button backButton = new Button("Back");
+            backButton.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT-400);
+            window.add(backButton);
+            backButton.onClick(() -> {
+                window.removeAll();
+                setUpMainMenu();
+            });
+        });
+    }
+
     private void addLevel1Button(){
-        Button firstLevel = new Button("Level 1");
-        window.add(firstLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 600);
+        Button firstLevel = new Button("Battle of New York");
+        firstLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 600);
+        window.add(firstLevel);
         firstLevel.onClick(() -> {
-            window.draw();
             window.removeAll();
             MemoryGame game = new MemoryGame(window);
             game.newGame(1);
@@ -81,10 +107,10 @@ public class UI{
     }
 
     private void addLevel2Button(){
-        Button secondLevel = new Button("Level 2");
-        window.add(secondLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 550);
+        Button secondLevel = new Button("Age of Ultron");
+        secondLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 550);
+        window.add(secondLevel);
         secondLevel.onClick(() -> {
-            window.draw();
             window.removeAll();
             MemoryGame game = new MemoryGame(window);
             game.newGame(2);
@@ -92,10 +118,10 @@ public class UI{
     }
 
     private void addLevel3Button(){
-        Button firstLevel = new Button("Level 3");
-        window.add(firstLevel, WINDOW_WIDTH / 2, WINDOW_HEIGHT - 500);
-        firstLevel.onClick(() -> {
-            window.draw();
+        Button thirdLevel = new Button("Infinity War");
+        thirdLevel.setCenter(WINDOW_WIDTH/2, WINDOW_HEIGHT - 500);
+        window.add(thirdLevel);
+        thirdLevel.onClick(() -> {
             window.removeAll();
             MemoryGame game = new MemoryGame(window);
             game.newGame(3);

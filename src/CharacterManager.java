@@ -2,12 +2,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
-import java.util.Collections;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Point;
-
-import java.util.Queue;
 
 /**
  * 
@@ -19,14 +16,14 @@ public class CharacterManager {
     private CanvasWindow window;
     private Levels levels;
     private static CharacterPNGPath pathDirectory;
-    private long timer = 1;
 
     private int currentLevel;
 
     private static Random random = new Random();
 
-    private static final int MIN_SIZE = 100;
-    private static final int MAX_SIZE = 200;
+    private static final int MIN_SIZE = 300;
+    private static final int MAX_SIZE = 400;
+    private static final int PADDING = 100;
     
     public CharacterManager(CanvasWindow window){
         characterSequence = new LinkedList<>();
@@ -104,7 +101,7 @@ public class CharacterManager {
     }
 
     private Point randomCoordinate(){
-        return new Point(randomInt(window.getWidth()-MIN_SIZE), randomInt(window.getHeight()-MIN_SIZE));
+        return new Point(randomInt(PADDING, window.getWidth()-MIN_SIZE-PADDING), randomInt(PADDING, window.getHeight()-MIN_SIZE-PADDING));
     }
     
     public Queue<Character> getCharacterSequence(){

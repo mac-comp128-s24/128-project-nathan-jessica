@@ -17,6 +17,7 @@ public class Levels {
         "Okoye", "War Machine", "Gamora"};
     private static int[] livesLeft = {3, 2, 1};
     private static double[] initialSpeed = {1, 0.9, 0.8};
+    private static String[] background = {"ny.jpg", "Ultron.jpg", "infinity_war_bg.jpg"};
     
     /**
      * 
@@ -39,5 +40,9 @@ public class Levels {
 
     public double getInitialSpeed(int levelNumber){
         return initialSpeed[levelNumber - 1];
+    }
+
+    public String getBackground(int levelNumber){
+        return background[levelNumber - 1];
     }
 }

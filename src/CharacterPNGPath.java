@@ -39,4 +39,8 @@ public class CharacterPNGPath{
     public String get(String name){
         return characterPath.get(name);
     }
+
+    public HashMap<String, String> getMapping(){
+        return characterPath;
+    }
 }
