@@ -42,10 +42,6 @@ public class InputManager {
             System.out.println("x out of bound");
             return false;
         }
-        // if(clickedY > coordinates[4] || clickedY < coordinates[3]){
-        //     System.out.println("y out of bound");
-        //     return false;
-        // }
     }
 
 }
