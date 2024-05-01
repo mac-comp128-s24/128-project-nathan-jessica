@@ -7,7 +7,11 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Point;
 
 /**
- * 
+ * Manages our characters through adding and removing characters from our initialized data structures
+ * Smaller methods allows us to manage what the user sees on the canvas with the characters
+ * @author Yunzhu (Jessica) Chen
+ * @author Nathan Gumagay
+ * COMP 128 SPRING 2024
  */
 public class CharacterManager {
     private static Queue<Character> characterSequence;
@@ -25,6 +29,13 @@ public class CharacterManager {
     private static final int MAX_SIZE = 400;
     private static final int PADDING = 100;
     
+
+    /**
+     * Creates a new Character Manager with the canvas window argument
+     * Creates a Queue, Hashmap, as well as initializes the Character's path
+     * Creates the level and initializes the window
+     * @param window
+     */
     public CharacterManager(CanvasWindow window){
         characterSequence = new LinkedList<>();
         characterCoordinate = new HashMap<Character, double[]>();
@@ -33,10 +44,16 @@ public class CharacterManager {
         this.levels = new Levels();
     }
 
+    /**
+     * set the level with the argument
+     */
     public void setCurrentLevel(int level){
         this.currentLevel = level;
     }
 
+    /**
+     * Adds the character to the canvas window, adds the character to the queue, and adds the character to the hashmap
+     */
     public void placeCharacter(){
         String[] characterAvailable = levels.get(currentLevel);
         int characterIndex = randomInt(characterAvailable.length);
@@ -66,6 +83,9 @@ public class CharacterManager {
         characterCoordinate.put(character, coordinateRange);
     }
 
+    /**
+     * removes the character from the window as well as the character from the queue
+     */
     public void removeCharacter(){
         if (!characterSequence.isEmpty()) {
             window.remove(characterSequence.peek());
@@ -73,31 +93,56 @@ public class CharacterManager {
         }
     }
 
+    /**
+     * @return the coordinate of the character that was the argument
+     * @param character
+     */
     private double[] getCoordinate(Character character){
         double[] coordinate = characterCoordinate.get(character).clone();
         return coordinate;
     }
 
+    /**
+     * @return the coordinates of our character
+     */
     public double[] getFirstCharacterCoordinate(){
         return getCoordinate(characterSequence.peek()).clone();
     }
 
+    /**
+     * @return a random int for the limit
+     * @param limit
+     */
     private int randomInt(int limit){
         return random.nextInt(limit);
     }
     
+    /**
+     * @return a random integer for the lower limit and upper limit
+     * @param lowerLimit
+     * @param upperLimit
+     */
     private int randomInt(int lowerLimit, int upperLimit){
         return random.nextInt(lowerLimit, upperLimit);
     }
 
+    /**
+     * @return a random integer that will be the size of our image
+     */
     private int randomSize(){
         return randomInt(MIN_SIZE, MAX_SIZE);
     }
 
+    /**
+     * @return a random point on our canvas window
+     */
     private Point randomCoordinate(){
         return new Point(randomInt(PADDING, window.getWidth()-MIN_SIZE-PADDING), randomInt(PADDING, window.getHeight()-MIN_SIZE-PADDING));
     }
     
+    /**
+     * @return a queue of characters
+     */
     public Queue<Character> getCharacterSequence(){
         return characterSequence;
     }
