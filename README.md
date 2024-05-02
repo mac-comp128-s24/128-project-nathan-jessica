@@ -3,7 +3,7 @@
 Nathan Gumagay and Jessica Chen
 
 
-
+![WackAMole](res/whack-a-mole.webp)
 
 This project was inspired by the many times that we went to the arcade and played the smashing hedgehog game that was a staple to all arcade games. We decided to put a twist on it though and try to implement a data structure to it that would make it more difficult as well as more complex. The way the game works is that the goal of the game is for the user to click off as many Avengers as possible. 
 
