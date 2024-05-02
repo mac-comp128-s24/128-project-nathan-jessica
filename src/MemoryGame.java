@@ -36,7 +36,7 @@ public class MemoryGame {
     private Button backToMenu = new Button("Close");
 
     /**
-     * 
+     * Creates our memory game
      * @param window 
      */
     public MemoryGame(CanvasWindow window){
@@ -46,6 +46,11 @@ public class MemoryGame {
         levels = new Levels();
     }
 
+    /**
+     * Creates a new game depending on the argument
+     * Where everything comes together and makes the game
+     * @param level
+     */
     public void newGame(int level) {
         this.currentLevel = level;
         charManager.setCurrentLevel(currentLevel);
@@ -63,6 +68,10 @@ public class MemoryGame {
         window.animate(dt -> addCharacterSequence(dt));
     }
 
+    /**
+     * Sets up the labels that the player can see
+     * Stores the lives, and scores
+     */
     private void setUpLabels(){
         Rectangle backing = new Rectangle(30, 5, 375, 75);
         backing.setFillColor(Color.WHITE);
@@ -93,13 +102,19 @@ public class MemoryGame {
         window.add(lifeScore);
     }
 
+    /**
+     * Sets up our background
+     */
     private void setUpBackground(){
         background.setImagePath(levels.getBackground(currentLevel));
         background.setMaxWidth(window.getWidth());
         background.setCenter(window.getCenter());
         window.add(background);
     }
-
+    /**
+     * Based on our argument the method will change the score for the player as well as remove the character on the point
+     * @param clickedPoint
+     */
     private void onClick(Point clickedPoint){
         if(inputManager.testHit(clickedPoint)){
             avengersSnapped += 1;
@@ -112,6 +127,10 @@ public class MemoryGame {
         }
     }
 
+    /**
+     * Depending on our argument the method will add a characyer to both the queue as well as the canvas
+     * @param dt
+     */
     private void addCharacterSequence(double dt){
         if (lifeLeft > 0 && charManager.getCharacterSequence().size() <= 5) {
             if (timeElapsed >= pauseTime) {
@@ -126,6 +145,9 @@ public class MemoryGame {
         }
     }
 
+    /**
+     * Ends the game
+     */
     private void endGame(){
        window.removeAll();
        window.setBackground(Color.GRAY);
@@ -143,6 +165,9 @@ public class MemoryGame {
 
     }
 
+    /**
+     * Button that allows the user to go back to the main menu after losing
+     */
     private void addBackToMenuButton(){
         backToMenu.setCenter(window.getWidth()/2, window.getHeight()-300);
         window.add(backToMenu);

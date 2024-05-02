@@ -1,7 +1,10 @@
 import java.util.HashMap;
 
 /**
- * 
+ * Stores the different levels to our game
+ * @author Yunzhu (Jessica) Chen
+ * @author Nathan Gumagay
+ * COMP 128 SPRING 2024
  */
 public class Levels {
     private static HashMap<Integer, String[]> levels = new HashMap<Integer, String[]>();
@@ -20,7 +23,7 @@ public class Levels {
     private static String[] background = {"ny.jpg", "Ultron.jpg", "infinity_war_bg.jpg"};
     
     /**
-     * 
+     * Creates our levels
      */
     public Levels(){
         levels.put(1, level1);
@@ -28,20 +31,37 @@ public class Levels {
         levels.put(3, level3);
     }
 
-    
+    /**
+     * @param levelNumber
+     * @return A certain group of characters for the certain level
+     */
     public String[] get(int levelNumber){
         return levels.get(levelNumber);
     }
 
-    
+    /**
+     * 
+     * @param levelNumber
+     * @return The amount of lives alotted to each level
+     */
     public int getLifesLeft(int levelNumber){
         return livesLeft[levelNumber - 1];
     }
 
+    /**
+     * 
+     * @param levelNumber
+     * @return the initial speed of the certain levekl
+     */
     public double getInitialSpeed(int levelNumber){
         return initialSpeed[levelNumber - 1];
     }
 
+    /**
+     * 
+     * @param levelNumber
+     * @return the background for the certain argument
+     */
     public String getBackground(int levelNumber){
         return background[levelNumber - 1];
     }

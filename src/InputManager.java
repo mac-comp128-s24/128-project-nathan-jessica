@@ -14,7 +14,7 @@ public class InputManager {
     private CharacterManager characterManager;
 
     /**
-     * 
+     * Creates a new Input Manager object
      * @param window
      * @param characterManager
      */
@@ -24,7 +24,8 @@ public class InputManager {
     }
 
     /**
-     * 
+     * Checks the point that was clicked by the user onto the coordinates of our first character of our queue
+     * @param clickedPoint
      */
     public boolean testHit(Point clickedPoint){
         double clickedX = clickedPoint.getX();
